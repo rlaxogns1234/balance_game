@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const question = "물냉" vs "비냉";
+const question = "물냉 vs 비냉";
 
 function vote(option) {
   console.log("voted: ", option);
