@@ -23,7 +23,6 @@ function vote(option) {
   document.querySelectorAll("button").forEach(btn => btn.disabled = true);
 }
 
-window.vote = vote;
 
 const resultRef = ref(db, "votes/" + question);
 onValue(resultRef, snapshot => {
@@ -40,3 +39,5 @@ onValue(resultRef, snapshot => {
     <div>총 투표 수: ${total}명</div>
   `;
 });
+
+window.vote = vote;
