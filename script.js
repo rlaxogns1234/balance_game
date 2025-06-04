@@ -32,9 +32,9 @@ onValue(resultRef, snapshot => {
   const rate2 = 100 - rate1;
 
   document.getElementById("result").innerHTML = `
-    <div class="label">치킨: ${data["물냉"] || 0}표 (${rate1}%)</div>
+    <div class="label">물냉: ${data["물냉"] || 0}표 (${rate1}%)</div>
     <div class="bar" style="width: ${rate1}%; background-color: orange;"></div>
-    <div class="label">피자: ${data["비냉"] || 0}표 (${rate2}%)</div>
+    <div class="label">비냉: ${data["비냉"] || 0}표 (${rate2}%)</div>
     <div class="bar" style="width: ${rate2}%; background-color: tomato;"></div>
     <div>총 투표 수: ${total}명</div>
   `;
