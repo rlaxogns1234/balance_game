@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const question = "치킨 vs 피자";
+const question = "물냉" vs "비냉";
 
 function vote(option) {
   const voteRef = ref(db, "votes/" + question + "/" + option);
@@ -26,15 +26,15 @@ window.vote = vote;
 
 const resultRef = ref(db, "votes/" + question);
 onValue(resultRef, snapshot => {
-  const data = snapshot.val() || { "치킨": 0, "피자": 0 };
-  const total = (data["치킨"] || 0) + (data["피자"] || 0);
-  const rate1 = total ? Math.round((data["치킨"] / total) * 100) : 0;
+  const data = snapshot.val() || { "물냉": 0, "비냉": 0 };
+  const total = (data["물냉"] || 0) + (data["비냉"] || 0);
+  const rate1 = total ? Math.round((data["물냉"] / total) * 100) : 0;
   const rate2 = 100 - rate1;
 
   document.getElementById("result").innerHTML = `
-    <div class="label">치킨: ${data["치킨"] || 0}표 (${rate1}%)</div>
+    <div class="label">치킨: ${data["물냉"] || 0}표 (${rate1}%)</div>
     <div class="bar" style="width: ${rate1}%; background-color: orange;"></div>
-    <div class="label">피자: ${data["피자"] || 0}표 (${rate2}%)</div>
+    <div class="label">피자: ${data["비냉"] || 0}표 (${rate2}%)</div>
     <div class="bar" style="width: ${rate2}%; background-color: tomato;"></div>
     <div>총 투표 수: ${total}명</div>
   `;
