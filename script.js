@@ -40,4 +40,4 @@ onValue(resultRef, snapshot => {
   `;
 });
 
-window.vote = vote;
+window.vote = vote();
