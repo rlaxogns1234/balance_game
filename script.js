@@ -17,6 +17,7 @@ const db = getDatabase(app);
 const question = "물냉" vs "비냉";
 
 function vote(option) {
+  console.log("voted: ", option);
   const voteRef = ref(db, "votes/" + question + "/" + option);
   runTransaction(voteRef, current => (current || 0) + 1);
   document.querySelectorAll("button").forEach(btn => btn.disabled = true);
